@@ -8,7 +8,7 @@
     <div class="media-body">
       <div class="article-metadata">
         <a class="mr-2" href="#">{{ posts.author }}</a>
-        <small class="text-muted">{{ posts.date_posted }}</small>
+        <small class="text-muted">{{ posts.posted_on | date:"F d, Y"}}</small>
       </div>
       <h2><a class="article-title" href="#">{{ posts.title }}</a></h2>
       <p class="article-content">{{ posts.content }}</p>
