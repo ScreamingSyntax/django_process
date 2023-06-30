@@ -31,13 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'blog.apps.BlogConfig',
-    'django.contrib.admin', #admin interface
-    'django.contrib.auth',  #user- authentication
+    'users.apps.UsersConfig', # user-login/registrations
+    'blog.apps.BlogConfig', # blog-apps
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'django.contrib.admin', # admin interface
+    'django.contrib.auth',  # user- authentication
     'django.contrib.contenttypes',
-    'django.contrib.sessions', #Temporary Session/Storage
-    'django.contrib.messages', # To Send Notifications
-    'django.contrib.staticfiles', # Displaying Static files
+    'django.contrib.sessions', # Temporary Session/Storage
+    'django.contrib.messages', #  To Send Notifications
+    'django.contrib.staticfiles', #  Displaying Static files
     'playground'
 ]
 
@@ -123,3 +126,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRISPY_ALLOWED_TEMPLATE_PACK='bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
