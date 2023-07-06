@@ -7,7 +7,7 @@ def home(request):
 
     posts = Post.objects.all()
     context = {
-        'post':posts,
+        'posts':posts,
         'title':'home'
     }
     # return HttpResponse('<h1>BlogHome</h1>')4

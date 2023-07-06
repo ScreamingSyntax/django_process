@@ -7,6 +7,7 @@ from django.contrib import messages
 from .forms import UserRegisterForm
 from users.models import Profile
 from django.contrib.auth.models import User
+from users.forms import UserUpdateForm,ProfileUpdateForm
 def register(request):
     if request.method == 'POST':
 
@@ -24,4 +25,21 @@ def register(request):
 
 @login_required
 def profile(request):  
-    return render(request,'users/profile.html')
+    if(request.method == 'POST'):
+        p_form = ProfileUpdateForm(request.POST,request.FILES,instance=request.user.profile)
+        u_form = UserUpdateForm(request.POST,instance=request.user)
+        # if(p_form.is_valid() || u_form.is_va)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request,"Your profile is updated successfully")
+            redirect('profile')
+    else:
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+        u_form = UserUpdateForm(instance=request.user)
+
+    context= {
+        'u_form':u_form,
+        'p_form':p_form 
+    }
+    return render(request,'users/profile.html',context)
