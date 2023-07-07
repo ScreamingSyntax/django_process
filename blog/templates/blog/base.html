@@ -30,6 +30,7 @@
               {% comment %} if({{  }}) {% endcomment %}
               {% if  user.is_authenticated %}
               <div class="navbar-nav">
+                <a class="nav-item nav-link" href="{% url 'post-create' %}">New Post</a>
                 <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
                 <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
               </div>
